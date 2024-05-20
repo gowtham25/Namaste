@@ -1,0 +1,44 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="device-width initial-scale=1.0"/>
+        <title>Short polling example</title>
+    </head>
+    <body>
+        <h1>Short Polling Example 1</h1>
+        <script>
+            async function getData() {
+                try {
+                    const response = await fetch('/getData');
+                    const result = await response.json();
+                    document.getElementById('data-container').innerHTML = result.data;
+                } catch(e) {
+                    console.log(e)
+                }
+            }
+
+            function shortPolling () {
+                setInterval(() => {
+                    getData();
+                }, 5000)
+            }
+
+            shortPolling();
+        </script>
+        <div id="data-container"></div>
+    </body>
+</html>
+
+
+<!-- Examples -->
+<!-- Real time system
+Notification
+Cricinfo
+Analytics
+Version update -->
+
+<!--  -->
+<!-- Short live connection
+No persistant connection
+Less resource utility
+Problem with scale -->
