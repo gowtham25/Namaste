@@ -1,0 +1,39 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="device-width initial-scale=1.0"/>
+        <title>Long polling example</title>
+    </head>
+    <body>
+        <h1>Long Polling Example 1</h1>
+        <script>
+            async function getData(lastData) {
+                try {
+                    const response = await fetch(`/getData?lastData=${lastData}`);
+                    const result = await response.json();
+                    document.getElementById('data-container').innerHTML = result.data;
+                    getData(result.data);
+                } catch(e) {
+                    console.log(e)
+                }
+            }
+
+            getData();
+        </script>
+        <div id="data-container"></div>
+    </body>
+</html>
+
+
+<!-- Examples -->
+<!-- Real time system
+Notification
+Cricinfo
+Analytics
+Version update -->
+
+<!--  -->
+<!-- Short live connection
+No persistant connection
+Less resource utility
+Problem with scale -->
