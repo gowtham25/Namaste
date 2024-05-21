@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="device-width initial-scale=1.0"/>
+        <title>Web Socket example</title>
+    </head>
+    <body>
+        <script>
+            const eventSource = new EventSource('/sse');
+
+            eventSource.onmessage((event) => {
+                console.log(event.data);
+            })
+        </script>
+    </body>
+</html>
+
+
+<!-- 
+- Full duplex communication
+- Single long live TCP connections
+- Continious Bi-direction communication
+-->
+
+<!-- USE CASES
+- Analytics
+- Financial Communication
+- Online Trading
+- Collabrate editor
+-->
+
+<!-- CHALLENGES 
+- Resource usage
+- Connectionlimit
+- Sticky Sessions
+- Load Balancer
+- Authentication
+- Firewall / proxy
+- Scaling
+- Testing
+- Backward Compatability
+- Resourcecleanup
+ -->
